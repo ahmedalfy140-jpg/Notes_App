@@ -19,11 +19,11 @@ final String? labelText;
                     labelStyle: TextStyle(color: Color(0xff62FCD7)),
                     labelText: labelText,
                     focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(16),
+                      borderRadius: BorderRadius.circular(8),
                       borderSide: BorderSide(color:Color(0xff62FCD7))
                     ),
                     enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(16),
+                      borderRadius: BorderRadius.circular(8),
                       borderSide: BorderSide(color: Colors.white)
                     )
                   ),
