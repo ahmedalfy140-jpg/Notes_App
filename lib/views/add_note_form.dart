@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:note_app/cubits/add_note_cubit/add_note_cubit.dart';
+import 'package:note_app/cubits/add_note_cubit/add_note_state.dart';
 import 'package:note_app/models/note_model.dart';
 import 'package:note_app/widgets/custom_button.dart';
 import 'package:note_app/widgets/custom_text_field.dart';
@@ -45,24 +46,29 @@ class _AddNoteFormState extends State<AddNoteForm> {
             labelText: 'Content',
             maxLines: 5,
           ),
-          SizedBox(height: 80,),
-          CustomButton(
-            onpressed: () {
-              if (formkey.currentState!.validate()){
-                formkey.currentState!.save();
-                var Notemodel=NoteModel(title: title!, content:suptitle!, date: DateTime.now().toString(), color: Colors.blue.value);
-                BlocProvider.of<AddNoteCubit>(context).addNote(Notemodel);
-                
-              }else{
-                autovalidateMode=AutovalidateMode.always;
-                setState(() {
+          SizedBox(height: 75,),
+          BlocBuilder<AddNoteCubit,AddNoteState>(
+            builder: (context,State){
 
-                });
-              }
-              titlecontroller.clear();
-              supTitlecontroller.clear();
-            },
-            nameButton: 'Add',
+            return CustomButton(
+              isLoading:State is AddNoteLoading? true :false ,
+              onpressed: () {
+                if (formkey.currentState!.validate()){
+                  formkey.currentState!.save();
+                  var notemodel=NoteModel(title: title!, content:suptitle!, date: DateTime.now().toString(), color: Colors.blue.value);
+                  BlocProvider.of<AddNoteCubit>(context).addNote(notemodel);
+                  
+                }else{
+                  autovalidateMode=AutovalidateMode.always;
+                  setState(() {
+            
+                  });
+                }
+                titlecontroller.clear();
+                supTitlecontroller.clear();
+              },
+                     
+            );}
           ),
       
           
