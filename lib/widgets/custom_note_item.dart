@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:intl/intl.dart';
 import 'package:note_app/models/note_model.dart';
 import 'package:note_app/views/edit_notes_view.dart';
 
@@ -52,7 +53,7 @@ final NoteModel notes;
             Padding(
               padding: const EdgeInsets.only(right: 24),
               child: Text(
-               notes.date,
+             notes.date,
                 style: TextStyle(color: Colors.black.withValues(alpha: 0.5),fontSize: 16),
               ),
             ),
