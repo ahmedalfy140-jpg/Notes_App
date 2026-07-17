@@ -37,14 +37,14 @@ class _AddNoteFormState extends State<AddNoteForm> {
               title=value;
             },
             
-            labelText: 'Title',),
+            hintText: 'Title',),
           SizedBox(height: 20,),
           CustomTextField(
             controller: supTitlecontroller,
             onSaved: (value){
               suptitle=value;
             },
-            labelText: 'Content',
+            hintText: 'Content',
             maxLines: 5,
           ),
           SizedBox(height: 75,),

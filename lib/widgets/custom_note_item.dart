@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:note_app/cubits/note_cubit/note_cubit.dart';
 import 'package:note_app/models/note_model.dart';
 import 'package:note_app/views/edit_notes_view.dart';
 
@@ -11,7 +13,7 @@ final NoteModel notes;
     return GestureDetector(
       onTap: (){
         Navigator.push(context, MaterialPageRoute(builder: (context){
-          return EditNotesView();
+          return EditNotesView(note: notes,);
         }));
       },
       child: Container(
@@ -43,6 +45,7 @@ final NoteModel notes;
               trailing: IconButton(
                 onPressed: () {
                   notes.delete();
+                  BlocProvider.of<NoteCubit>(context).fetchAllNotes();
                 },
                 icon: FaIcon(
                   FontAwesomeIcons.trash,
