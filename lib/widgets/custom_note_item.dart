@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:intl/intl.dart';
 import 'package:note_app/models/note_model.dart';
 import 'package:note_app/views/edit_notes_view.dart';
 
@@ -42,7 +41,9 @@ final NoteModel notes;
                 ),
               ),
               trailing: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  notes.delete();
+                },
                 icon: FaIcon(
                   FontAwesomeIcons.trash,
                   color: Colors.black,
