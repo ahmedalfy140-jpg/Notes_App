@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:note_app/cubits/add_note_cubit/add_note_cubit.dart';
 import 'package:note_app/cubits/add_note_cubit/add_note_state.dart';
 import 'package:note_app/models/note_model.dart';
+import 'package:note_app/views/color_list_view.dart';
 import 'package:note_app/widgets/custom_button.dart';
 import 'package:note_app/widgets/custom_text_field.dart';
 
@@ -47,7 +48,9 @@ class _AddNoteFormState extends State<AddNoteForm> {
             hintText: 'Content',
             maxLines: 5,
           ),
-          SizedBox(height: 75,),
+          SizedBox(height: 20),
+          ColorListView(),
+          SizedBox(height: 32,),
           BlocBuilder<AddNoteCubit,AddNoteState>(
             builder: (context,State){
 
@@ -73,6 +76,7 @@ class _AddNoteFormState extends State<AddNoteForm> {
                      
             );}
           ),
+          SizedBox(height: 20,),
       
           
         ],
