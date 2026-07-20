@@ -4,6 +4,7 @@ import 'package:note_app/cubits/note_cubit/note_cubit.dart';
 import 'package:note_app/models/note_model.dart';
 import 'package:note_app/widgets/custom_app_bar.dart';
 import 'package:note_app/widgets/custom_text_field.dart';
+import 'package:note_app/widgets/edit_note_color_listview.dart';
 
 class EditVotesBody extends StatefulWidget {
   const EditVotesBody({super.key, required this.note});
@@ -47,9 +48,17 @@ class _EditVotesBodyState extends State<EditVotesBody> {
             },
             hintText: widget.note.content,
             maxLines: 5,),
+             SizedBox(height: 10,),
+             EditColoristView(note:widget.note ,),
+             
+             
+
       
         ],
       ),
     );
   }
 }
+
+
+
