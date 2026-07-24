@@ -6,13 +6,13 @@ import 'package:hive/hive.dart';
 import 'package:note_app/cubits/search_note_cubit.dart/search_note_state.dart';
 import 'package:note_app/models/note_model.dart';
 
-class NoteCubit extends Cubit<SearchNoteState> {
+class SearchNoteCubit extends Cubit<SearchNoteState> {
 
-  NoteCubit() : super(SearchNoteInitial());
+  SearchNoteCubit() : super(SearchNoteInitial());
 
   List<NoteModel> allNotes = [];
 
-  void fetchAllNotes() {
+  void fetchAllNotesSearch() {
     var notesBox = Hive.box<NoteModel>('note_box');
 
     allNotes = notesBox.values.toList();

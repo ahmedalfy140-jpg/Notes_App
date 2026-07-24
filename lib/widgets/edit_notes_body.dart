@@ -32,7 +32,7 @@ class _EditVotesBodyState extends State<EditVotesBody> {
 
             },
             
-            title: 'Edit Note',icon: Icons.check,),
+            title: Text('Edit Note', style: TextStyle(fontSize: 28),),icon: Icons.check,),
           SizedBox(height: 20,),
           CustomTextField(
             onChanged: (value){
